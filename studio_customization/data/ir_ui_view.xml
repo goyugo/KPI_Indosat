@@ -1,0 +1,1018 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization.odoo_studio_form_vie_530e7734-5212-421a-8905-567850c75aef" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='question_and_page_ids']" position="inside">
+          <form string="Survey Question" create="false">
+            <field name="is_page" invisible="1"/>
+            <field name="survey_id" invisible="1"/>
+            <field name="sequence" invisible="1"/>
+            <sheet>
+              <div class="oe_title" style="width: 100%;">
+                <label for="title" string="Section" attrs="{'invisible': [('is_page', '=', False)]}"/>
+                <label for="title" string="Question" attrs="{'invisible': [('is_page', '=', True)]}"/>
+                <separator/>
+                <field name="title" colspan="4"/>
+                <separator/>
+                <field name="questions_selection" invisible="1"/>
+              </div>
+              <group class="o_label_nowrap" attrs="{'invisible': ['|', ('is_page', '=', False), ('questions_selection', '=', 'all')]}">
+                <field name="random_questions_count"/>
+              </group>
+              <group attrs="{'invisible': [('is_page', '=', True)]}">
+                <group>
+                  <field name="question_type" widget="radio" attrs="{'required': [('is_page', '=', False)]}"/>
+                </group>
+                <group>
+                  <div class="col-lg-6 offset-lg-3 o_preview_questions">
+                    <!-- Multiple Lines Text Zone -->
+                    <div attrs="{'invisible': [('question_type', '!=', 'free_text')]}">
+                      <i class="fa fa-align-justify fa-4x" role="img" aria-label="Multiple lines" title="Multiple Lines"/>
+                    </div>
+                    <!-- Single Line Text Zone -->
+                    <div attrs="{'invisible': [('question_type', '!=', 'textbox')]}">
+                      <i class="fa fa-minus fa-4x" role="img" aria-label="Single Line" title="Single Line"/>
+                    </div>
+                    <!-- Numerical Value -->
+                    <div attrs="{'invisible': [('question_type', '!=', 'numerical_box')]}">
+                      <i class="fa fa-2x" role="img" aria-label="Numeric" title="Numeric">123..</i>
+                    </div>
+                    <!-- Date -->
+                    <div attrs="{'invisible': [('question_type', '!=', 'date')]}">
+                      <p class="o_datetime">YYYY-MM-DD
+                                        <i class="fa fa-calendar fa-2x" role="img" aria-label="Calendar" title="Calendar"/>
+                                    </p>
+                    </div>
+                    <!-- Date and Time -->
+                    <div attrs="{'invisible': [('question_type', '!=', 'datetime')]}">
+                      <p class="o_datetime">YYYY-MM-DD hh:mm:ss
+                                        <i class="fa fa-calendar fa-2x" role="img" aria-label="Calendar" title="Calendar"/>
+                                    </p>
+                    </div>
+                    <!-- Multiple choice: only one answer -->
+                    <div attrs="{'invisible': [('question_type', '!=', 'simple_choice')]}" role="img" aria-label="Multiple choice with one answer" title="Multiple choice with one answer">
+                      <div class="row"><i class="fa fa-circle-o  fa-lg"/> answer</div>
+                      <div class="row"><i class="fa fa-dot-circle-o fa-lg"/> answer</div>
+                      <div class="row"><i class="fa fa-circle-o  fa-lg"/> answer</div>
+                    </div>
+                    <!-- Multiple choice: multiple answers allowed -->
+                    <div attrs="{'invisible': [('question_type', '!=', 'multiple_choice')]}" role="img" aria-label="Multiple choice with multiple answers" title="Multiple choice with multiple answers">
+                      <div class="row"><i class="fa fa-square-o fa-lg"/> answer</div>
+                      <div class="row"><i class="fa fa-check-square-o fa-lg"/> answer</div>
+                      <div class="row"><i class="fa fa-square-o fa-lg"/> answer</div>
+                    </div>
+                    <!-- Matrix -->
+                    <div attrs="{'invisible': [('question_type', '!=', 'matrix')]}">
+                      <div class="row o_matrix_head">
+                        <div class="col-lg-3"/>
+                        <div class="col-lg-3">ans</div>
+                        <div class="col-lg-3">ans</div>
+                        <div class="col-lg-3">ans</div>
+                      </div>
+                      <div class="row o_matrix_row">
+                        <div class="col-lg-3">Row1</div>
+                        <div class="col-lg-3">
+                          <i class="fa fa-circle-o fa-lg" role="img" aria-label="Not checked" title="Not checked"/>
+                        </div>
+                        <div class="col-lg-3">
+                          <i class="fa fa-dot-circle-o fa-lg" role="img" aria-label="Checked" title="Checked"/>
+                        </div>
+                        <div class="col-lg-3">
+                          <i class="fa fa-circle-o fa-lg" role="img" aria-label="Not checked" title="Not checked"/>
+                        </div>
+                      </div>
+                      <div class="row o_matrix_row">
+                        <div class="col-lg-3">Row2</div>
+                        <div class="col-lg-3">
+                          <i class="fa fa-circle-o fa-lg" role="img" aria-label="Not checked" title="Not checked"/>
+                        </div>
+                        <div class="col-lg-3">
+                          <i class="fa fa-circle-o fa-lg" role="img" aria-label="Not checked" title="Not checked"/>
+                        </div>
+                        <div class="col-lg-3">
+                          <i class="fa fa-dot-circle-o fa-lg" role="img" aria-label="Checked" title="Checked"/>
+                        </div>
+                      </div>
+                      <div class="row o_matrix_row">
+                        <div class="col-lg-3">Row3</div>
+                        <div class="col-lg-3">
+                          <i class="fa fa-dot-circle-o fa-lg" role="img" aria-label="Checked" title="Checked"/>
+                        </div>
+                        <div class="col-lg-3">
+                          <i class="fa fa-circle-o fa-lg" role="img" aria-label="Not checked" title="Not checked"/>
+                        </div>
+                        <div class="col-lg-3">
+                          <i class="fa fa-circle-o fa-lg" role="img" aria-label="Not checked" title="Not checked"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </group>
+              </group>
+              <notebook attrs="{'invisible': [('is_page', '=', True)]}">
+                <page string="Answers">
+                  <field name="validation_email" attrs="{'invisible': [('question_type', '!=', 'textbox')]}"/>
+                  <label for="validation_email" attrs="{'invisible': [('question_type', '!=', 'textbox')]}"/>
+                  <field name="page_id" invisible="1" required="0"/>
+                  <field name="survey_id" invisible="1" readonly="1"/>
+                  <field name="scoring_type" invisible="1"/>
+                  <separator/>
+                  <label for="labels_ids" string="Columns of the Matrix" attrs="{'invisible': [('question_type', '!=', 'matrix')]}"/>
+                  <field name="labels_ids" string="Type of answers" context="{'default_question_id': active_id}" attrs="{'invisible': [('question_type', 'not in', ['simple_choice', 'multiple_choice', 'matrix'])]}">
+                    <tree editable="bottom">
+                      <field name="sequence" widget="handle"/>
+                      <field name="value" string="Choices"/>
+                      <field name="is_correct" attrs="{'column_invisible': ['|', ('parent.scoring_type', '=', 'no_scoring'), ('parent.question_type', '=', 'matrix')]}"/>
+                      <field name="answer_score" attrs="{'column_invisible': ['|', ('parent.scoring_type', '=', 'no_scoring'), ('parent.question_type', '=', 'matrix')]}"/>
+                    </tree>
+                  </field>
+                  <separator/>
+                  <label for="labels_ids_2" attrs="{'invisible': [('question_type', '!=', 'matrix')]}"/>
+                  <field name="labels_ids_2" context="{'default_question_id_2': active_id}" attrs="{'invisible': [('question_type', '!=', 'matrix')]}">
+                    <tree editable="bottom">
+                      <field name="sequence" widget="handle"/>
+                      <field name="value" string="Rows"/>
+                    </tree>
+                  </field>
+                </page>
+                <page string="Options">
+                  <group string="Constraints">
+                    <group colspan="2" col="4">
+                      <field name="constr_mandatory" string="Mandatory Answer"/>
+                      <field name="constr_error_msg" attrs="{'invisible': [('constr_mandatory', '=', False)]}"/>
+                    </group>
+                    <div colspan="2" attrs="{'invisible': [('question_type', 'not in', ['textbox', 'numerical_box', 'date', 'datetime'])]}">
+                      <group>
+                        <field name="validation_required" attrs="{'invisible': [('validation_email', '=', True), ('question_type', '=', 'textbox')]}"/>
+                      </group>
+                      <group col="4" attrs="{'invisible': [('validation_required', '=', False)]}">
+                        <field name="validation_length_min" attrs="{'invisible': [('question_type', '!=', 'textbox')]}"/>
+                        <field name="validation_length_max" attrs="{'invisible': [('question_type', '!=', 'textbox')]}"/>
+                        <field name="validation_min_float_value" attrs="{'invisible': [('question_type', '!=', 'numerical_box')]}"/>
+                        <field name="validation_max_float_value" attrs="{'invisible': [('question_type', '!=', 'numerical_box')]}"/>
+                        <field name="validation_min_date" attrs="{'invisible': [('question_type', '!=', 'date')]}"/>
+                        <field name="validation_max_date" attrs="{'invisible': [('question_type', '!=', 'date')]}"/>
+                        <field name="validation_min_datetime" widget="datetime" attrs="{'invisible': [('question_type', '!=', 'datetime')]}"/>
+                        <field name="validation_max_datetime" widget="datetime" attrs="{'invisible': [('question_type', '!=', 'datetime')]}"/>
+                        <field name="validation_error_msg" colspan="4"/>
+                      </group>
+                    </div>
+                    <group>
+                      <field name="matrix_subtype" attrs="{'invisible':[('question_type','not in',['matrix'])],'required':[('question_type','=','matrix')]}"/>
+                    </group>
+                  </group>
+                  <group string="Display mode" attrs="{'invisible':[('question_type','not in',['simple_choice', 'multiple_choice'])]}">
+                    <field name="display_mode" string="Format" attrs="{'invisible':[('question_type','not in',['simple_choice'])],'required':[('question_type','=','simple_choice')]}"/>
+                    <field name="column_nb" string="Number of columns" attrs="{'invisible':[('display_mode','=','dropdown'), ('question_type','=','simple_choice')]}"/>
+                  </group>
+                  <group string="Allow Comments" attrs="{'invisible':[('question_type','not in',['simple_choice','multiple_choice', 'matrix'])]}">
+                    <field name="comments_allowed"/>
+                    <field name="comments_message" attrs="{'invisible': [('comments_allowed', '=', False)]}"/>
+                    <field name="comment_count_as_answer" attrs="{'invisible': ['|', ('comments_allowed', '=', False), ('question_type', 'in', ['matrix'])]}"/>
+                  </group>
+                </page>
+              </notebook>
+            </sheet>
+          </form>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="survey.survey_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">survey.survey</field>
+    <field name="name">Odoo Studio: Form view for survey customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.odoo_studio_form_vie_7e42ff5a-90f7-49bd-9d92-5bec71ceb382" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='question_type']" position="after">
+          <field invisible="1" name="x_studio_field_XcCv5_filename"/>
+          <field filename="x_studio_field_XcCv5_filename" name="x_studio_field_XcCv5"/>
+        </xpath>
+        <xpath expr="//field[@name='labels_ids_2']" position="after">
+          <field filename="x_studio_dokumen_upload_filename" name="x_studio_dokumen_upload" widget="pdf_viewer" string="Dokumen Upload"/>
+          <field invisible="1" name="x_studio_dokumen_upload_filename"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="survey.survey_question_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">survey.question</field>
+    <field name="name">Odoo Studio: Form view for survey question customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.odoo_studio_res_part_74ffe5ce-a9cc-479d-add6-28334c86c33a" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//page[@name='internal_notes']" position="replace">
+          <page name="studio_page_JEsBx" string="Data Keuangan">
+            <group name="studio_group_JEsBx">
+              <group name="studio_group_JEsBx_left">
+                <field name="x_studio_field_NDwVS"/>
+                <field name="x_studio_jenis_mata_uang" string="Jenis Mata Uang"/>
+                <field invisible="1" name="x_studio_buku_tabungan_filename"/>
+                <field filename="x_studio_buku_tabungan_filename" name="x_studio_buku_tabungan" string="Buku Tabungan"/>
+              </group>
+              <group name="studio_group_JEsBx_right">
+                <field name="x_studio_pajak" string="Pajak"/>
+                <field name="x_studio_no_dokumen_pajak" string="No Dokumen Pajak"/>
+                <field name="x_studio_tanggal_berakhir_dokumen" string="Tanggal Berakhir Dokumen"/>
+                <field invisible="1" name="x_studio_dokumen_pajak_filename"/>
+                <field filename="x_studio_dokumen_pajak_filename" name="x_studio_dokumen_pajak" string="Dokumen Pajak"/>
+                <field invisible="1" name="x_studio_dokumen_spt_filename"/>
+                <field filename="x_studio_dokumen_spt_filename" name="x_studio_dokumen_spt" string="Dokumen SPT"/>
+              </group>
+            </group>
+          </page>
+          <page name="studio_page_DIzwa" string="Pengalaman Pekerjaan">
+            <group name="studio_group_DIzwa">
+              <group name="studio_group_DIzwa_left">
+                <field name="x_studio_judul_kontrak" string="Judul Kontrak"/>
+                <field name="x_studio_no_kontrak_po" string="No Kontrak (PO)"/>
+                <field name="x_studio_tanggal_kontrak" string="Tanggal Kontrak"/>
+                <field name="x_studio_tanggal_selesai_kontrak" string="Tanggal Selesai Kontrak"/>
+                <field name="x_studio_nama_pengguna_barang_atau_jasa" string="Nama Pengguna Barang atau Jasa"/>
+                <field invisible="1" name="x_studio_dokumen_bast_filename"/>
+                <field filename="x_studio_dokumen_bast_filename" name="x_studio_dokumen_bast" string="Dokumen BAST"/>
+              </group>
+              <group name="studio_group_DIzwa_right"/>
+            </group>
+          </page>
+          <page name="studio_page_Jtw8x" string="Data Administrasi">
+            <notebook name="studio_notebook_5OpC2">
+              <page name="studio_page_5OpC2" string="Informasi Umum">
+                <group name="studio_group_5OpC2">
+                  <group name="studio_group_5OpC2_left">
+                    <field name="x_studio_kepemilikan_saham_asing" string="Kepemilikan Saham Asing"/>
+                    <field name="x_studio_jenis_usaha" string="Jenis Usaha"/>
+                    <field name="x_studio_tipe_entitas" string="Tipe Entitas"/>
+                    <field name="x_studio_kantor_pusatkantor_cabang" string="Kantor Pusat/Kantor Cabang"/>
+                  </group>
+                  <group name="studio_group_5OpC2_right">
+                    <field name="x_studio_tanggal_berakhir_surat_keterangan_domisili" string="Tanggal Berakhir Surat Keterangan Domisili"/>
+                    <field invisible="1" name="x_studio_dokumen_surat_keterangan_domisili_filename"/>
+                    <field filename="x_studio_dokumen_surat_keterangan_domisili_filename" name="x_studio_dokumen_surat_keterangan_domisili" string="Dokumen Surat Keterangan Domisili"/>
+                  </group>
+                </group>
+              </page>
+              <page name="studio_page_LNyWo" string="Landasan Hukum">
+                <group name="studio_group_LNyWo">
+                  <group name="studio_group_LNyWo_left">
+                    <field name="x_studio_jenis_akta" string="Jenis Akta"/>
+                    <field name="x_studio_nomor_akta" string="Nomor Akta"/>
+                    <field name="x_studio_tanggal_akta" string="Tanggal Akta"/>
+                    <field name="x_studio_nama_notaris" string="Nama Notaris"/>
+                    <field name="x_studio_no_sk_menteri_hukum_ham" string="No SK Menteri Hukum &amp; HAM"/>
+                    <field invisible="1" name="x_studio_dokumen_akta_perusahaan_sk_menteri_hukum_ham_filename"/>
+                    <field filename="x_studio_dokumen_akta_perusahaan_sk_menteri_hukum_ham_filename" name="x_studio_dokumen_akta_perusahaan_sk_menteri_hukum_ham" string="Dokumen Akta Perusahaan &amp; SK Menteri Hukum &amp; HAM"/>
+                  </group>
+                </group>
+              </page>
+              <page name="studio_page_2T1pC" string="Susunan Kepemilikan Saham">
+                <group name="studio_group_2T1pC">
+            </group>
+                <field name="x_studio_field_tNyr2" string="Susunan Kepemilikan Saham">
+                  <form>
+                    <sheet string="Susunan Kepemilikan Saham" name="studio_sheet_6313ed">
+                      <div class="oe_title" name="studio_div_002a6a">
+                        <h1>
+                          <field name="x_name" required="1"/>
+                        </h1>
+                      </div>
+                      <group name="studio_group_219eec">
+                        <group name="studio_group_219eec_left">
+                          <field name="x_studio_nama" string="Nama"/>
+                          <field name="x_studio_tipe_kepemilikan" string="Tipe Kepemilikan"/>
+                          <field name="x_studio_warga_negara" string="Warga Negara"/>
+                          <field name="x_studio_jumlah_saham_" string="Jumlah Saham (%)"/>
+                        </group>
+                        <group name="studio_group_219eec_right">
+                          <field name="x_studio_alamat_email" string="Alamat Email"/>
+                          <field name="x_studio_no_ktp_atau_paspor" string=" No KTP atau Paspor"/>
+                          <field invisible="1" name="x_studio_dokumen_ktp_atau_paspor_filename"/>
+                          <field filename="x_studio_dokumen_ktp_atau_paspor_filename" name="x_studio_dokumen_ktp_atau_paspor" string="Dokumen KTP atau Paspor"/>
+                        </group>
+                      </group>
+                    </sheet>
+                  </form>
+                </field>
+              </page>
+              <page name="studio_page_0J4YE" string="Susunan Pengurus">
+                <group name="studio_group_0J4YE">
+                  <group name="studio_group_0J4YE_left"/>
+                  <group name="studio_group_0J4YE_right"/>
+                </group>
+                <field name="x_studio_field_jgHtn"/>
+              </page>
+              <page name="studio_page_xYQls" string="Izin Usaha">
+                <group name="studio_group_xYQls">
+                  <group name="studio_group_xYQls_left">
+    </group>
+                </group>
+                <field name="x_studio_field_N5UTs"/>
+              </page>
+            </notebook>
+            <xpath expr="//field[@name='property_account_payable_id']" position="move"/>
+          </page>
+        </xpath>
+        <xpath expr="//page[@name='accounting']" position="replace"/>
+        <xpath expr="//page[@name='sales_purchases']" position="replace"/>
+        <xpath expr="//form[1]/sheet[1]/notebook[1]/page[1]" position="replace"/>
+        <xpath expr="//field[@name='category_id']" position="replace"/>
+        <xpath expr="//button[@name='action_view_partner_invoices']" position="replace"/>
+        <xpath expr="//button[@name='184']" position="replace"/>
+        <xpath expr="//form[1]/sheet[1]/div[@name='button_box']/button[@name='action_view_certifications'][2]" position="after">
+          <button class="oe_stat_button" icon="fa-area-chart" type="action" name="391" studio-view-group-names="User" studio-view-group-ids="18">
+            <field name="x_x_studio_nama__x_susunan_kepemilikan__count" string="Vendor KPI" widget="statinfo" studio-view-group-names="User" studio-view-group-ids="18"/>
+          </button>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/div[not(@name)][1]/h1[1]/field[@name='name']" position="attributes">
+          <attribute name="placeholder">Name Perusahaan</attribute>
+          <attribute name="string">Name Perusahaan</attribute>
+        </xpath>
+        <xpath expr="//label[@name='address_name']" position="attributes">
+          <attribute name="string">Alamat</attribute>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/div[1]/field[@name='street']" position="attributes">
+          <attribute name="placeholder"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/div[1]/field[@name='street2']" position="attributes">
+          <attribute name="placeholder"/>
+        </xpath>
+        <xpath expr="//field[@name='city']" position="attributes">
+          <attribute name="placeholder">Kota</attribute>
+        </xpath>
+        <xpath expr="//field[@name='state_id']" position="attributes">
+          <attribute name="placeholder">Provinsi</attribute>
+          <attribute name="string">Provinsi</attribute>
+        </xpath>
+        <xpath expr="//field[@name='zip']" position="attributes">
+          <attribute name="placeholder">Kode Pos</attribute>
+          <attribute name="string">Kode Pos</attribute>
+        </xpath>
+        <xpath expr="//field[@name='country_id']" position="attributes">
+          <attribute name="placeholder">Negara</attribute>
+          <attribute name="string">Negara</attribute>
+        </xpath>
+        <xpath expr="//field[@name='vat']" position="attributes">
+          <attribute name="placeholder"/>
+          <attribute name="string">NPWP Perusahaan</attribute>
+        </xpath>
+        <xpath expr="//field[@name='vat']" position="after">
+          <field name="x_studio_nama_kontak" string="Nama Kontak"/>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/label[1]" position="attributes">
+          <attribute name="string">No Telp</attribute>
+        </xpath>
+        <xpath expr="//form[1]/sheet[1]/group[1]/group[2]/label[2]" position="attributes">
+          <attribute name="string">No Fax</attribute>
+        </xpath>
+        <xpath expr="//field[@name='website']" position="attributes">
+          <attribute name="string">Alamat Website</attribute>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">res.partner</field>
+    <field name="name">Odoo Studio: res.partner.form customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_form_view_fo_a668e01d-4a0f-408d-a87a-26463979671e" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <form>
+        <sheet string="Susunan Kepemilikan Saham">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1"/>
+            </h1>
+          </div>
+          <group name="studio_group_219eec">
+            <group name="studio_group_219eec_left"/>
+            <group name="studio_group_219eec_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_susunan_kepemilikan_</field>
+    <field name="name">Default form view for x_susunan_kepemilikan_</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.odoo_studio_default__24b4ec46-a7cb-4af1-ab10-b788c6d1cadf" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_219eec_left']" position="inside">
+          <field name="x_studio_nama" string="Nama"/>
+          <field name="x_studio_tipe_kepemilikan" string="Tipe Kepemilikan"/>
+          <field name="x_studio_warga_negara" string="Warga Negara"/>
+          <field name="x_studio_jumlah_saham_" string="Jumlah Saham (%)"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_219eec_right']" position="inside">
+          <field name="x_studio_alamat_email" string="Alamat Email"/>
+          <field name="x_studio_no_ktp_atau_paspor" string=" No KTP atau Paspor"/>
+          <field invisible="1" name="x_studio_dokumen_ktp_atau_paspor_filename"/>
+          <field filename="x_studio_dokumen_ktp_atau_paspor_filename" name="x_studio_dokumen_ktp_atau_paspor" string="Dokumen KTP atau Paspor"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization.default_form_view_fo_a668e01d-4a0f-408d-a87a-26463979671e"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_susunan_kepemilikan_</field>
+    <field name="name">Odoo Studio: Default form view for x_susunan_kepemilikan_ customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_tree_view_fo_be9ab8d6-af12-42fa-a228-9670a4b763e8" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <tree string="Susunan Kepemilikan Saham">
+        <field name="x_name" modifiers="{}"/>
+      </tree>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_susunan_kepemilikan_</field>
+    <field name="name">Default tree view for x_susunan_kepemilikan_</field>
+    <field name="priority">16</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization.odoo_studio_default__83877789-414c-4dee-9a78-cee870846f7a" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_name']" position="after">
+          <field name="x_studio_nama"/>
+          <field name="x_studio_alamat_email"/>
+          <field name="x_studio_warga_negara"/>
+          <field name="x_studio_no_ktp_atau_paspor"/>
+          <field name="x_studio_tipe_kepemilikan"/>
+          <field name="x_studio_jumlah_saham_"/>
+          <field name="x_studio_dokumen_ktp_atau_paspor"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization.default_tree_view_fo_be9ab8d6-af12-42fa-a228-9670a4b763e8"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_susunan_kepemilikan_</field>
+    <field name="name">Odoo Studio: Default tree view for x_susunan_kepemilikan_ customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization.default_form_view_fo_e2cb494d-b737-4460-9ea7-e745871b1797" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <form>
+        <sheet string="test ">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1"/>
+            </h1>
+          </div>
+          <group name="studio_group_650804">
+            <group name="studio_group_650804_left"/>
+            <group name="studio_group_650804_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_test_</field>
+    <field name="name">Default form view for x_test_</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.odoo_studio_default__02f7981d-d6a2-467d-a55c-3381c89fc8cc" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_650804_left']" position="inside">
+          <field name="x_studio_field_bsICn"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization.default_form_view_fo_e2cb494d-b737-4460-9ea7-e745871b1797"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_test_</field>
+    <field name="name">Odoo Studio: Default form view for x_test_ customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_form_view_fo_b931b286-6b1c-4b90-b1d7-2db6e22d04f1" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <form>
+        <sheet string="Susunan Pengurus">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1"/>
+            </h1>
+          </div>
+          <group name="studio_group_cff2d3">
+            <group name="studio_group_cff2d3_left"/>
+            <group name="studio_group_cff2d3_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_susunan_pengurus</field>
+    <field name="name">Default form view for x_susunan_pengurus</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_form_view_fo_d2f77812-8ef7-48ec-a40d-6e67ecdb9373" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <form>
+        <sheet string="Pengurus">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1"/>
+            </h1>
+          </div>
+          <group name="studio_group_e1cb41">
+            <group name="studio_group_e1cb41_left"/>
+            <group name="studio_group_e1cb41_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_pengurus</field>
+    <field name="name">Default form view for x_pengurus</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_form_view_fo_87349586-6abf-4551-95f0-ac8f6d984232" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <form>
+        <sheet string="Nama Pengurus">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1"/>
+            </h1>
+          </div>
+          <group name="studio_group_9b7c9e">
+            <group name="studio_group_9b7c9e_left"/>
+            <group name="studio_group_9b7c9e_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_nama_pengurus</field>
+    <field name="name">Default form view for x_nama_pengurus</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_tree_view_fo_cf93d28e-ec42-4731-8918-ac992b1189c0" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <tree string="Susunan Pengurus">
+        <field name="x_name" modifiers="{}"/>
+      </tree>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_susunan_pengurus</field>
+    <field name="name">Default tree view for x_susunan_pengurus</field>
+    <field name="priority">16</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization.odoo_studio_default__4dd95f1b-510d-4059-9d9f-4f84da6977a3" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_name']" position="attributes">
+          <attribute name="string">Jabatan</attribute>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_cff2d3_left']" position="inside">
+          <field name="x_studio_field_F2D3S" string="Nama"/>
+          <field name="x_studio_tipe_pengurus" string="Tipe Pengurus"/>
+          <field name="x_studio_alamat_email" string="Alamat Email"/>
+        </xpath>
+        <xpath expr="//group[@name='studio_group_cff2d3_right']" position="inside">
+          <field name="x_studio_no_ktp_atau_paspor" string="No KTP atau Paspor"/>
+          <field invisible="1" name="x_studio_dokumen_ktp_atau_paspor_filename"/>
+          <field filename="x_studio_dokumen_ktp_atau_paspor_filename" name="x_studio_dokumen_ktp_atau_paspor" string="Dokumen KTP atau Paspor"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization.default_form_view_fo_b931b286-6b1c-4b90-b1d7-2db6e22d04f1"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_susunan_pengurus</field>
+    <field name="name">Odoo Studio: Default form view for x_susunan_pengurus customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.odoo_studio_default__85ddd157-47d0-435a-a14a-ba13d9616e2b" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_name']" position="before">
+          <field name="x_studio_field_F2D3S"/>
+          <field name="x_studio_alamat_email"/>
+          <field name="x_studio_tipe_pengurus"/>
+        </xpath>
+        <xpath expr="//field[@name='x_name']" position="after">
+          <field name="x_studio_no_ktp_atau_paspor"/>
+          <field name="x_studio_dokumen_ktp_atau_paspor"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization.default_tree_view_fo_cf93d28e-ec42-4731-8918-ac992b1189c0"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_susunan_pengurus</field>
+    <field name="name">Odoo Studio: Default tree view for x_susunan_pengurus customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization.default_form_view_fo_67506fcf-b01c-4594-8a34-6456d422f673" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <form>
+        <sheet string="Izin_usaha">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1"/>
+            </h1>
+          </div>
+          <group name="studio_group_42cb32">
+            <group name="studio_group_42cb32_left"/>
+            <group name="studio_group_42cb32_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_izin_usaha</field>
+    <field name="name">Default form view for x_izin_usaha</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_tree_view_fo_4a7a8958-d026-44a4-b4c5-275bb035b749" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <tree string="Izin_usaha">
+        <field name="x_name" modifiers="{}"/>
+      </tree>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_izin_usaha</field>
+    <field name="name">Default tree view for x_izin_usaha</field>
+    <field name="priority">16</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization.odoo_studio_default__6da06fb2-d8af-4d2c-95dd-d97c4a5c6dc8" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_42cb32_left']" position="inside">
+          <field name="x_studio_field_QQ9An"/>
+          <field name="x_studio_field_LNuL9"/>
+          <field name="x_studio_bidang_usaha" string="Bidang Usaha"/>
+          <field name="x_studio_nomor_izin_usaha" string="Nomor Izin Usaha"/>
+          <field name="x_studio_tanggal_masa_berlaku" string="Tanggal Masa Berlaku" widget="date"/>
+          <field name="x_studio_tanggal_berakhir" string="Tanggal Berakhir" widget="date"/>
+          <field invisible="1" name="x_studio_dokumen_izin_usaha_filename"/>
+          <field filename="x_studio_dokumen_izin_usaha_filename" name="x_studio_dokumen_izin_usaha" string="Dokumen Izin Usaha"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization.default_form_view_fo_67506fcf-b01c-4594-8a34-6456d422f673"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_izin_usaha</field>
+    <field name="name">Odoo Studio: Default form view for x_izin_usaha customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_form_view_fo_e35da896-492b-4d86-addc-7cc33173bc69" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <form>
+        <sheet string="Jenis_izin_usaha">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1"/>
+            </h1>
+          </div>
+          <group name="studio_group_d97a84">
+            <group name="studio_group_d97a84_left"/>
+            <group name="studio_group_d97a84_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_jenis_izin_usaha</field>
+    <field name="name">Default form view for x_jenis_izin_usaha</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_tree_view_fo_26e67c19-1130-4ed1-832f-4348d868eabe" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <tree string="Jenis_izin_usaha">
+        <field name="x_name" modifiers="{}"/>
+      </tree>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_jenis_izin_usaha</field>
+    <field name="name">Default tree view for x_jenis_izin_usaha</field>
+    <field name="priority">16</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization.odoo_studio_default__a97391d0-a616-4540-9dd0-ca94cd31a619" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_name']" position="after">
+          <field name="x_studio_field_LNuL9"/>
+          <field name="x_studio_tanggal_masa_berlaku"/>
+          <field name="x_studio_tanggal_berakhir"/>
+          <field name="x_studio_dokumen_izin_usaha"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization.default_tree_view_fo_4a7a8958-d026-44a4-b4c5-275bb035b749"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_izin_usaha</field>
+    <field name="name">Odoo Studio: Default tree view for x_izin_usaha customization</field>
+    <field name="priority">99</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization.odoo_studio_default__041e2fea-ca24-4572-8449-b026ad3c85e9" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_d97a84_left']" position="inside">
+          <field name="x_studio_field_zMllM"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization.default_form_view_fo_e35da896-492b-4d86-addc-7cc33173bc69"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_jenis_izin_usaha</field>
+    <field name="name">Odoo Studio: Default form view for x_jenis_izin_usaha customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_tree_view_fo_34efd113-85cf-4bbe-a030-3affdc4e5236" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <tree string="Pengurus">
+        <field name="x_name" modifiers="{}"/>
+      </tree>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_pengurus</field>
+    <field name="name">Default tree view for x_pengurus</field>
+    <field name="priority">16</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization.default_form_view_fo_6564cead-fd76-4f8b-9573-c859aa8225c1" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <form>
+        <sheet string="KPI Definition">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1"/>
+            </h1>
+          </div>
+          <group name="studio_group_218feb">
+            <group name="studio_group_218feb_left"/>
+            <group name="studio_group_218feb_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_kpi_definition</field>
+    <field name="name">Default form view for x_kpi_definition</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.odoo_studio_default__8d1c4baa-463b-4a02-86fa-bb44d9eb2863" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//group[@name='studio_group_218feb_left']" position="inside">
+          <field name="x_studio_field_fvjxM"/>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization.default_form_view_fo_6564cead-fd76-4f8b-9573-c859aa8225c1"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_kpi_definition</field>
+    <field name="name">Odoo Studio: Default form view for x_kpi_definition customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_form_view_fo_ad4fc051-d1fa-41b4-886c-ff2256b5af4c" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <form>
+        <sheet string="KPI_Configuration">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1"/>
+            </h1>
+          </div>
+          <group name="studio_group_50e21e">
+            <group name="studio_group_50e21e_left"/>
+            <group name="studio_group_50e21e_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_kpi_configuration</field>
+    <field name="name">Default form view for x_kpi_configuration</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_form_view_fo_fbf7d988-afcc-4cd2-9b83-63d08e561652" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <form>
+        <sheet string="KPI_Category">
+          <div class="oe_title">
+            <h1>
+              <field name="x_name" required="1"/>
+            </h1>
+          </div>
+          <group name="studio_group_2c996c">
+            <group name="studio_group_2c996c_left"/>
+            <group name="studio_group_2c996c_right"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_kpi_category</field>
+    <field name="name">Default form view for x_kpi_category</field>
+    <field name="priority">16</field>
+    <field name="type">form</field>
+  </record>
+  <record id="studio_customization.default_tree_view_fo_28edc1da-4228-43f8-8a1c-132488f432e6" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <tree string="KPI_Category">
+        <field name="x_name" modifiers="{}"/>
+      </tree>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_kpi_category</field>
+    <field name="name">Default tree view for x_kpi_category</field>
+    <field name="priority">16</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization.default_tree_view_fo_605dee24-c69b-45c7-ba72-613ec8143976" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <tree string="KPI_Configuration">
+        <field name="x_name" modifiers="{}"/>
+      </tree>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" eval="False"/>
+    <field name="key" eval="False"/>
+    <field name="mode">primary</field>
+    <field name="model">x_kpi_configuration</field>
+    <field name="name">Default tree view for x_kpi_configuration</field>
+    <field name="priority">16</field>
+    <field name="type">tree</field>
+  </record>
+  <record id="studio_customization.odoo_studio_default__515ca9d2-049c-44df-a870-9db56d7d93a8" model="ir.ui.view" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="arch" type="xml">
+      <data>
+        <xpath expr="//field[@name='x_name']" position="attributes">
+          <attribute name="string">Kategori Pekerjaan</attribute>
+        </xpath>
+      </data>
+    </field>
+    <field name="field_parent" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="inherit_id" ref="studio_customization.default_form_view_fo_fbf7d988-afcc-4cd2-9b83-63d08e561652"/>
+    <field name="key" eval="False"/>
+    <field name="mode">extension</field>
+    <field name="model">x_kpi_category</field>
+    <field name="name">Odoo Studio: Default form view for x_kpi_category customization</field>
+    <field name="priority">99</field>
+    <field name="type">form</field>
+  </record>
+</odoo>

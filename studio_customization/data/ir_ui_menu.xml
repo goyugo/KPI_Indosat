@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization.susunan_kepelimikan__be101318-967b-4541-babf-05effd5fed51" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [ref('base.group_erp_manager')])]"/>
+    <field name="name">Susunan Kepelimikan Saham</field>
+    <field name="parent_id" ref="base_setup.menu_config"/>
+    <field name="sequence">10</field>
+    <field name="web_icon">fa fa-diamond,#f1c40f,#34495e</field>
+  </record>
+  <record id="studio_customization.susunan_kepelimikan__f5f563bc-41ad-4fe1-9671-ffe3bba34b10" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.susunan_kepemilikan__36ed8cfc-1733-432f-be92-6dcfc84eaa40"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Susunan Kepemilikan Saham</field>
+    <field name="parent_id" ref="studio_customization.susunan_kepelimikan__be101318-967b-4541-babf-05effd5fed51"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.susunan_kepelimikan__4717825f-55b9-4b96-a44c-86e1537eba81" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="base.action_open_website"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Pemilik Saham</field>
+    <field name="parent_id" ref="studio_customization.susunan_kepelimikan__be101318-967b-4541-babf-05effd5fed51"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.susunan_kepelimikan__d8859787-e036-42c9-a2ed-eba53de76a19" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="base.action_open_website"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Pemilik Saham</field>
+    <field name="parent_id" ref="studio_customization.susunan_kepelimikan__be101318-967b-4541-babf-05effd5fed51"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.susunan_kepelimikan__0f0dc0df-f412-47df-8845-ef52d91c4ffa" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.pemilik_saham_ba5c62f4-5f36-4205-ba89-d814dcaf59d4"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Pemilik Saham</field>
+    <field name="parent_id" ref="studio_customization.susunan_kepelimikan__be101318-967b-4541-babf-05effd5fed51"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.susunan_kepelimikan__e6514f15-5957-47dc-b6cb-22d24628e938" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.pemilik_saham_84215439-8b08-49c2-ac02-745f82caa1ba"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Pemilik Saham</field>
+    <field name="parent_id" ref="studio_customization.susunan_kepelimikan__be101318-967b-4541-babf-05effd5fed51"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.susunan_kepelimikan__21906164-a1b0-4e91-8981-c71cf475d6b0" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.test_5fb9d246-64ed-42bb-917c-63ebfb0ebcd7"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Test</field>
+    <field name="parent_id" ref="studio_customization.susunan_kepelimikan__be101318-967b-4541-babf-05effd5fed51"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.susunan_kepelimikan__44244773-c901-4c24-bbb3-6d34a8c21f19" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.test_cc939d34-97b5-4299-a9d3-c399331e962d"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Test</field>
+    <field name="parent_id" ref="studio_customization.susunan_kepelimikan__be101318-967b-4541-babf-05effd5fed51"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.susunan_kepelimikan__fc6eb5d5-bfd4-4a32-b203-cdf8cd4d8d46" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.susunan_pengurus_b488fb85-32e7-41cc-8c32-700243db1d26"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Susunan Pengurus</field>
+    <field name="parent_id" ref="studio_customization.susunan_kepelimikan__be101318-967b-4541-babf-05effd5fed51"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.susunan_pengurus_df4930b9-0761-42b0-b487-9dab5b1ddd16" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Susunan Pengurus</field>
+    <field name="parent_id" ref="base_setup.menu_config"/>
+    <field name="sequence">10</field>
+    <field name="web_icon">fa fa-diamond,#f1c40f,#34495e</field>
+  </record>
+  <record id="studio_customization.susunan_pengurus_pen_789f7e4a-c7b1-403d-b0c8-3b4443344aa9" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.pengurus_dc506179-0873-408d-adaa-f5f25757e8c4"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Pengurus</field>
+    <field name="parent_id" ref="studio_customization.susunan_pengurus_df4930b9-0761-42b0-b487-9dab5b1ddd16"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.susunan_kepelimikan__20b20da3-c0fd-4030-b511-a18b3db3d13a" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.izin_usaha_191fa6a5-9565-4b75-8093-d45bde37781d"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Izin Usaha</field>
+    <field name="parent_id" ref="studio_customization.susunan_kepelimikan__be101318-967b-4541-babf-05effd5fed51"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.susunan_kepelimikan__6b0933bc-759b-4ab2-88ab-6c340cb2a454" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.jenis_izin_usaha_3248e8cc-fd83-4296-902f-bbaeb862cb1c"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Jenis Izin Usaha</field>
+    <field name="parent_id" ref="studio_customization.susunan_kepelimikan__be101318-967b-4541-babf-05effd5fed51"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.on_boarding_a82fd23a-d4b8-44c9-898a-4929f706258d" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="name">On Boarding</field>
+    <field name="parent_id" eval="False"/>
+    <field name="sequence">10</field>
+    <field name="web_icon">fa fa-home,#f1c40f,#34495e</field>
+  </record>
+  <record id="studio_customization.on_boarding_database_245ad40a-7dea-4620-b533-573cc79787f2" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.database_partner_1b9d2b97-b01f-4735-be99-838abdda3dea"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Database Partner</field>
+    <field name="parent_id" ref="studio_customization.on_boarding_a82fd23a-d4b8-44c9-898a-4929f706258d"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.kpi_vendor_dd3b6647-e1e2-4cb6-bbe9-9d6fef8e228f" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" eval="False"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">KPI Vendor</field>
+    <field name="parent_id" eval="False"/>
+    <field name="sequence">10</field>
+    <field name="web_icon">fa fa-pie-chart,#EB5A46,#34495e</field>
+  </record>
+  <record id="studio_customization.kpi_vendor_kpi_defin_aab3ccc5-8c09-447c-9a85-d2821b76e0da" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.kpi_definition_d9cccdda-0c9a-4043-9701-b8924edc1ed7"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">KPI Definition</field>
+    <field name="parent_id" ref="studio_customization.kpi_vendor_dd3b6647-e1e2-4cb6-bbe9-9d6fef8e228f"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.kpi_vendor_configura_6039e817-6623-4ecc-8215-c291f730db31" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.configuration_fc7d496f-2add-45ef-a24e-210fa081beab"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">Configuration</field>
+    <field name="parent_id" ref="studio_customization.kpi_vendor_dd3b6647-e1e2-4cb6-bbe9-9d6fef8e228f"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.kpi_vendor_kpi_categ_dbbaa37e-f3fe-4896-b444-eb726cfd5b1f" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.kpi_category_6661b2f3-6b00-4d1f-8549-c47ba9397af1"/>
+    <field name="active" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">KPI Category</field>
+    <field name="parent_id" ref="studio_customization.kpi_vendor_configura_6039e817-6623-4ecc-8215-c291f730db31"/>
+    <field name="sequence" eval="False"/>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.kpi_vendor_kpi_categ_14b2cb23-7002-4d30-8101-7b203c94959a" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.kpi_category_8cba9e11-d09b-46f4-8a6d-9f86effbaa7e"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">KPI Category</field>
+    <field name="parent_id" ref="studio_customization.kpi_vendor_dd3b6647-e1e2-4cb6-bbe9-9d6fef8e228f"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.kpi_vendor_kpi_categ_b0944e8d-b021-4754-b054-d7428354b8ac" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.kpi_category_d2dfc5de-14f2-4eea-9c9c-f5692fe99643"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">KPI Category</field>
+    <field name="parent_id" ref="studio_customization.kpi_vendor_dd3b6647-e1e2-4cb6-bbe9-9d6fef8e228f"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.kpi_vendor_kpi_categ_b0051fb8-93c7-4ffe-be69-509870c44add" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.kpi_category_3c41a1f8-1921-4acb-a075-48761dfe8598"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">KPI Category</field>
+    <field name="parent_id" ref="studio_customization.kpi_vendor_dd3b6647-e1e2-4cb6-bbe9-9d6fef8e228f"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+  <record id="studio_customization.kpi_vendor_kpi_categ_ed2b137b-eeed-4c7f-bfee-62ceae8cd300" model="ir.ui.menu" context="{'studio': True}">
+    <field name="action" ref="studio_customization.kpi_category_9afe22d8-a1c2-4a19-90d3-5ad61a507507"/>
+    <field name="active" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">KPI Category</field>
+    <field name="parent_id" ref="studio_customization.kpi_vendor_dd3b6647-e1e2-4cb6-bbe9-9d6fef8e228f"/>
+    <field name="sequence">10</field>
+    <field name="web_icon" eval="False"/>
+  </record>
+</odoo>

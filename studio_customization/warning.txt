@@ -1,0 +1,8 @@
+The following relational data haven't been exported because they either refer
+to a model that Studio doesn't export, or have no XML id:
+
+Record: studio_customization.on_boarding_a82fd23a-d4b8-44c9-898a-4929f706258d
+Model: ir.ui.menu
+Field: groups_id
+Type: many2many
+Value: res.groups(39,) ('Purchase / User1')
